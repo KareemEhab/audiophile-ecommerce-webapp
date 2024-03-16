@@ -9,11 +9,10 @@ const Button4 = ({ children, onClick }: Props) => {
   return (
     <HStack onClick={onClick}>
       <Text
+        className="subtitle"
         color="white.800"
         _hover={{ color: "orange.800", opacity: "1" }}
         cursor="pointer"
-        fontSize="0.75rem"
-        fontWeight="bold"
       >
         {children}
       </Text>

@@ -1,9 +1,9 @@
-import shoppingCartStyles from "./shopping-cart.module.css";
+import styles from "./svg.module.css";
 
 const ShoppingCartButton = () => {
   return (
     <svg
-      className={shoppingCartStyles["shopping-cart-icon"]}
+      className={styles["svg-icon"]}
       width="23"
       height="20"
       xmlns="http://www.w3.org/2000/svg"

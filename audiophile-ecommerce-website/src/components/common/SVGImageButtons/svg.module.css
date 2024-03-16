@@ -1,8 +1,8 @@
-.shopping-cart-icon {
+.svg-icon {
   fill: #ffffff;
 }
 
-.shopping-cart-icon:hover {
+.svg-icon:hover {
   cursor: pointer;
   fill: #d87d4a;
   user-select: none;

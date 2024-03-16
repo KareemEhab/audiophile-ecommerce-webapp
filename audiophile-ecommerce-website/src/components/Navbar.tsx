@@ -1,7 +1,7 @@
 import { HStack, Image } from "@chakra-ui/react";
 import Button4 from "./common/Button4";
 import logo from "../../assets/shared/desktop/logo.svg";
-import ShoppingCartButton from "./common/ShoppingCart/ShoppingCartButton";
+import ShoppingCartButton from "./common/SVGImageButtons/ShoppingCart";
 
 const Navbar = () => {
   return (

@@ -1,0 +1,101 @@
+html,
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+/* Only set overflow to auto where needed */
+body {
+  overflow: auto;
+}
+
+.h1 {
+  font-family: "Manrope";
+  font-weight: bold;
+  font-size: 56px;
+  text-transform: uppercase;
+  line-height: 58px;
+  letter-spacing: 2px;
+  margin: 0;
+}
+
+/* H2 */
+.h2 {
+  font-weight: bold;
+  font-size: 40px;
+  text-transform: uppercase;
+  line-height: 44px;
+  letter-spacing: 1.5px;
+  margin: 0;
+}
+
+/* H3 */
+.h3 {
+  font-weight: bold;
+  font-size: 32px;
+  text-transform: uppercase;
+  line-height: 36px;
+  letter-spacing: 1.15px;
+  margin: 0;
+}
+
+/* H4 */
+.h4 {
+  font-weight: bold;
+  font-size: 28px;
+  text-transform: uppercase;
+  line-height: 38px;
+  letter-spacing: 2px;
+  margin: 0;
+}
+
+/* H5 */
+.h5 {
+  font-weight: bold;
+  font-size: 24px;
+  text-transform: uppercase;
+  line-height: 33px;
+  letter-spacing: 1.7px;
+  margin: 0;
+}
+
+/* H6 */
+.h6 {
+  font-weight: bold;
+  font-size: 18px;
+  text-transform: uppercase;
+  line-height: 24px;
+  letter-spacing: 1.3px;
+  margin: 0;
+}
+
+/* Overline */
+.overline {
+  font-weight: normal;
+  font-size: 14px;
+  text-transform: uppercase;
+  line-height: 19px;
+  letter-spacing: 10px;
+  margin: 0;
+}
+
+/* Subtitle */
+.subtitle {
+  font-weight: bold;
+  font-size: 13px;
+  text-transform: uppercase;
+  line-height: 25px;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+/* Regular Body */
+.regular {
+  font-weight: medium;
+  font-size: 15px;
+  line-height: 25px;
+  margin: 0;
+}

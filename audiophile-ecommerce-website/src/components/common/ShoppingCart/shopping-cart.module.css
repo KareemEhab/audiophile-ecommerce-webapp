@@ -1,0 +1,9 @@
+.shopping-cart-icon {
+  fill: #ffffff;
+}
+
+.shopping-cart-icon:hover {
+  cursor: pointer;
+  fill: #d87d4a;
+  user-select: none;
+}

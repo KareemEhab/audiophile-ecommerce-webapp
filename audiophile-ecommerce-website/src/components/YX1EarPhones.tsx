@@ -16,7 +16,7 @@ const YX1EarPhones = () => {
         bg="white.600"
         borderRadius="0.5rem"
       >
-        <Text className="h2" color="black.800" overflowWrap="normal">
+        <Text className="h3" color="black.800" overflowWrap="normal">
           YX1 EARPHONES
         </Text>
         <Button2 onClick={() => {}}>SEE PRODUCT</Button2>

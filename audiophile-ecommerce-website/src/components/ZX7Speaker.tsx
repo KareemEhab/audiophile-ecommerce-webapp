@@ -12,7 +12,7 @@ const ZX7Speaker = () => {
       borderRadius="0.5rem"
     >
       <VStack align="left" gap="2.5rem">
-        <Text className="h2" color="black.800">
+        <Text className="h3" color="black.800">
           ZX7 SPEAKER
         </Text>
         <Button2 onClick={() => {}}>SEE PRODUCT</Button2>

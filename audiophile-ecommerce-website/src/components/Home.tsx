@@ -7,6 +7,7 @@ import categoryThumbnailSpeakers from "../../assets/shared/desktop/image-categor
 import ZX9SPeaker from "./ZX9SPeaker";
 import ZX7Speaker from "./ZX7Speaker";
 import YX1EarPhones from "./YX1EarPhones";
+import HomeDescription from "./HomeDescription";
 
 const Home = () => {
   return (
@@ -35,6 +36,7 @@ const Home = () => {
           <ZX7Speaker />
           <YX1EarPhones />
         </VStack>
+        <HomeDescription />
       </VStack>
     </VStack>
   );

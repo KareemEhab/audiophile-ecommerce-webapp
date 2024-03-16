@@ -8,13 +8,17 @@ interface Props {
 
 const Button3 = ({ children, onClick }: Props) => {
   return (
-    <HStack onClick={onClick}>
+    <HStack
+      onClick={onClick}
+      cursor="pointer"
+      _hover={{ ".hoverable": { color: "orange.800", opacity: "1" } }}
+    >
       <Text
+        className="subtitle hoverable"
         fontSize="0.81rem"
         fontWeight="bold"
         color="black.800"
         opacity="0.5"
-        _hover={{ color: "orange.800", opacity: "1" }}
       >
         {children}
       </Text>

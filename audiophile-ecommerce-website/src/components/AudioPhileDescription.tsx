@@ -3,7 +3,7 @@ import image from "../../assets/shared/desktop/image-best-gear.jpg";
 
 const HomeDescription = () => {
   return (
-    <HStack width="100%" gap="8rem" marginY="10rem">
+    <HStack width="100%" gap="8rem" marginY="13rem">
       <VStack gap="3rem" justify="center">
         <Text className="h2" color="black.800">
           Bringing you the{" "}

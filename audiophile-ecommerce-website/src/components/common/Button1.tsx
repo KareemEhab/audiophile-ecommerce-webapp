@@ -8,12 +8,15 @@ interface Props {
 const Button1 = ({ children, onClick }: Props) => {
   return (
     <Button
-      fontSize="0.81rem"
+      width="10rem"
+      height="3rem"
       bg="orange.800"
       color="white.800"
       onClick={onClick}
       borderRadius={0}
-      padding="1.75rem"
+      fontFamily="Manrope"
+      fontSize="13px"
+      letterSpacing="1px"
       _hover={{ bg: "orange.700" }}
     >
       {children}

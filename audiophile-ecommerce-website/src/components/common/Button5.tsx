@@ -13,11 +13,11 @@ const Button5 = ({ children, onClick }: Props) => {
       bg="black.800"
       color="white.800"
       borderRadius={0}
-      _hover={{ bg: "gray.800" }}
       onClick={onClick}
       fontFamily="Manrope"
       fontSize="13px"
       letterSpacing="1px"
+      _hover={{ bg: "gray.800" }}
     >
       {children}
     </Button>

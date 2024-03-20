@@ -6,7 +6,7 @@ import YX1EarPhones from "./YX1EarPhones";
 import HomeDescription from "./AudioPhileDescription";
 import Categories from "./Categories";
 
-const Home = () => {
+const HomePage = () => {
   return (
     <VStack width="100%">
       <Image src={desktopHeroIcon} width="100%" />
@@ -23,4 +23,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HomePage;

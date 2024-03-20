@@ -8,11 +8,6 @@ body {
   overflow-x: hidden;
 }
 
-/* Only set overflow to auto where needed */
-body {
-  overflow: auto;
-}
-
 .h1 {
   font-family: "Manrope";
   font-weight: bold;
@@ -99,4 +94,8 @@ body {
   font-size: 15px;
   line-height: 25px;
   margin: 0;
+}
+
+div {
+  white-space: pre-wrap;
 }

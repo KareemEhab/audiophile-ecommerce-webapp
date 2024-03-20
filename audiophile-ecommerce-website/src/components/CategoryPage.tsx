@@ -4,7 +4,7 @@ import image from "../../assets/product-xx99-mark-two-headphones/desktop/image-c
 import Categories from "./Categories";
 import AudioPhileDescription from "./AudioPhileDescription";
 
-const Category = () => {
+const CategoryPage = () => {
   return (
     <VStack width="100%">
       <HStack
@@ -51,4 +51,4 @@ const Category = () => {
   );
 };
 
-export default Category;
+export default CategoryPage;

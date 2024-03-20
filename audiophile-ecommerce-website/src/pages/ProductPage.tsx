@@ -1,12 +1,12 @@
 import { Box, VStack } from "@chakra-ui/react";
-import Product from "./Product";
+import Product from "../components/Product";
 import { useState } from "react";
-import ProductFeatures from "./ProductFeatures";
-import ProductGalleryComponent from "./ProductGallery";
+import ProductFeatures from "../components/ProductFeatures";
+import ProductGalleryComponent from "../components/ProductGallery";
 import data from "../../../starter-code/data.json";
-import ProductOthers from "./ProductOthers";
-import AudioPhileDescription from "./AudioPhileDescription";
-import Categories from "./Categories";
+import ProductOthers from "../components/ProductOthers";
+import AudioPhileDescription from "../components/common/AudioPhileDescription";
+import Categories from "../components/common/Categories";
 
 const ProductPage = () => {
   const [productCount, setCount] = useState(1);

@@ -1,8 +1,8 @@
 import { VStack, Text, HStack } from "@chakra-ui/react";
-import CategoryProduct from "./CategoryProduct";
+import CategoryProduct from "../components/CategoryProduct";
 import image from "../../assets/product-xx99-mark-two-headphones/desktop/image-category-page-preview.jpg";
-import Categories from "./Categories";
-import AudioPhileDescription from "./AudioPhileDescription";
+import Categories from "../components/common/Categories";
+import AudioPhileDescription from "../components/common/AudioPhileDescription";
 
 const CategoryPage = () => {
   return (

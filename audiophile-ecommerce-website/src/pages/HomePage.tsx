@@ -1,10 +1,10 @@
 import { Image, VStack } from "@chakra-ui/react";
 import desktopHeroIcon from "../../assets/home/desktop/image-hero.jpg";
-import ZX9SPeaker from "./ZX9SPeaker";
-import ZX7Speaker from "./ZX7Speaker";
-import YX1EarPhones from "./YX1EarPhones";
-import HomeDescription from "./AudioPhileDescription";
-import Categories from "./Categories";
+import ZX9SPeaker from "../components/HomeZX9SPeaker";
+import ZX7Speaker from "../components/HomeZX7Speaker";
+import YX1EarPhones from "../components/HomeYX1EarPhones";
+import HomeDescription from "../components/common/AudioPhileDescription";
+import Categories from "../components/common/Categories";
 
 const HomePage = () => {
   return (

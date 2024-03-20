@@ -1,8 +1,8 @@
 import { HStack } from "@chakra-ui/react";
-import categoryThumbnailEarphones from "../../assets/shared/desktop/image-category-thumbnail-earphones.png";
-import categoryThumbnailHeadphones from "../../assets/shared/desktop/image-category-thumbnail-headphones.png";
-import categoryThumbnailSpeakers from "../../assets/shared/desktop/image-category-thumbnail-speakers.png";
-import CategoryThumbnail from "./CategoryThumbnail";
+import categoryThumbnailEarphones from "../../../assets/shared/desktop/image-category-thumbnail-earphones.png";
+import categoryThumbnailHeadphones from "../../../assets/shared/desktop/image-category-thumbnail-headphones.png";
+import categoryThumbnailSpeakers from "../../../assets/shared/desktop/image-category-thumbnail-speakers.png";
+import CategoryThumbnail from "../CategoryThumbnail";
 
 const Categories = () => {
   return (

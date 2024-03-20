@@ -1,8 +1,8 @@
 import { VStack } from "@chakra-ui/react";
 import Navbar from "./components/Navbar";
-import HomePage from "./components/HomePage";
-import CategoryPage from "./components/CategoryPage";
-import ProductPage from "./components/ProductPage";
+import HomePage from "./pages/HomePage";
+import CategoryPage from "./pages/CategoryPage";
+import ProductPage from "./pages/ProductPage";
 import Footer from "./components/Footer";
 
 function App() {

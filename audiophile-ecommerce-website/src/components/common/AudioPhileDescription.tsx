@@ -1,5 +1,5 @@
 import { HStack, VStack, Text, Image } from "@chakra-ui/react";
-import image from "../../assets/shared/desktop/image-best-gear.jpg";
+import image from "../../../assets/shared/desktop/image-best-gear.jpg";
 
 const HomeDescription = () => {
   return (

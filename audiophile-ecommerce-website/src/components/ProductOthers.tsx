@@ -8,11 +8,11 @@ interface Props {
 
 const ProductOthers = ({ others }: Props) => {
   return (
-    <VStack gap="4rem">
+    <VStack width="100%" gap="4rem">
       <Text className="h3" color="black.800">
         You may also like
       </Text>
-      <HStack>
+      <HStack width="100%" justify="space-between">
         {others.map((product) => (
           <ProductOthersSingle product={product} />
         ))}

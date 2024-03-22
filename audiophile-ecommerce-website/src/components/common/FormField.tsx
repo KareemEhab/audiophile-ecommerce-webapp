@@ -6,9 +6,10 @@ interface Props {
   name: string;
   placeholder: string;
   width?: string;
+  type?: string;
 }
 
-function FormField({ label, name, placeholder, width }: Props) {
+function FormField({ label, name, placeholder, width, type }: Props) {
   const [field, meta] = useField(name);
 
   const isError = meta.touched && meta.error;
@@ -31,6 +32,7 @@ function FormField({ label, name, placeholder, width }: Props) {
         )}
       </HStack>
       <Input
+        type={type ? type : "text"}
         width={width ? width : "19.3125rem"}
         height="3.5rem"
         fontSize="0.875rem"
@@ -38,7 +40,6 @@ function FormField({ label, name, placeholder, width }: Props) {
         color="black.800"
         {...field}
         id={name}
-        type="text"
         borderColor={isError ? "red" : "white.500"}
         borderWidth="2px"
         borderRadius="0.5rem"

@@ -3,14 +3,30 @@ import Navbar from "./components/Navbar";
 import HomePage from "./pages/HomePage";
 import CategoryPage from "./pages/CategoryPage";
 import ProductPage from "./pages/ProductPage";
-import Footer from "./components/Footer";
 import CheckoutPage from "./pages/CheckoutPage";
-import { Navigate, Route, Routes } from "react-router-dom";
+import Footer from "./components/Footer";
+import {
+  Navigate,
+  Route,
+  Routes,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
+import { useEffect } from "react";
 
 function App() {
+  const location = useLocation();
+  const isFormPage =
+    location.pathname === "/login" || location.pathname === "/register";
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!localStorage.getItem("audiophile-token")) navigate("/login");
+  }, [location]);
+
   return (
     <VStack width="100vw">
-      <Navbar />
+      {!isFormPage && <Navbar />}
 
       <Routes>
         <Route path="/headphones" element={<CategoryPage />} />
@@ -22,7 +38,7 @@ function App() {
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
 
-      <Footer />
+      {!isFormPage && <Footer />}
     </VStack>
   );
 }

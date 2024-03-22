@@ -4,8 +4,11 @@ import logo from "../../assets/shared/desktop/logo.svg";
 import Facebook from "./common/SVGImageButtons/Facebook";
 import Twitter from "./common/SVGImageButtons/Twitter";
 import Instagram from "./common/SVGImageButtons/Instagram";
+import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
+  const navigate = useNavigate();
+
   return (
     <VStack width="100%" height="22.8125rem" bg="black.800" justify="center">
       <VStack
@@ -18,10 +21,34 @@ const Footer = () => {
         <HStack width="100%" justify="space-between">
           <Image src={logo} />
           <HStack gap="2rem">
-            <Button4 onClick={() => {}}>HOME</Button4>
-            <Button4 onClick={() => {}}>HEADPHONES</Button4>
-            <Button4 onClick={() => {}}>SPEAKERS</Button4>
-            <Button4 onClick={() => {}}>EARPHONES</Button4>
+            <Button4
+              onClick={() => {
+                navigate("/");
+              }}
+            >
+              HOME
+            </Button4>
+            <Button4
+              onClick={() => {
+                navigate("/headphones");
+              }}
+            >
+              HEADPHONES
+            </Button4>
+            <Button4
+              onClick={() => {
+                navigate("/speakers");
+              }}
+            >
+              SPEAKERS
+            </Button4>
+            <Button4
+              onClick={() => {
+                navigate("/earphones");
+              }}
+            >
+              EARPHONES
+            </Button4>
           </HStack>
         </HStack>
         <HStack width="100%" justify="space-between">

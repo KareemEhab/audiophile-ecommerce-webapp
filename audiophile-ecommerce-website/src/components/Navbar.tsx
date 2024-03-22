@@ -3,9 +3,12 @@ import Button4 from "./common/Button4";
 import logo from "../../assets/shared/desktop/logo.svg";
 import ShoppingCartButton from "./common/SVGImageButtons/ShoppingCart";
 import CartModal from "./CartModal";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const navigate = useNavigate();
+
   return (
     <HStack width="100%" position="absolute" justifyContent="center">
       <HStack
@@ -16,10 +19,34 @@ const Navbar = () => {
       >
         <Image src={logo} />
         <HStack gap="2rem">
-          <Button4 onClick={() => {}}>HOME</Button4>
-          <Button4 onClick={() => {}}>HEADPHONES</Button4>
-          <Button4 onClick={() => {}}>SPEAKERS</Button4>
-          <Button4 onClick={() => {}}>EARPHONES</Button4>
+          <Button4
+            onClick={() => {
+              navigate("/");
+            }}
+          >
+            HOME
+          </Button4>
+          <Button4
+            onClick={() => {
+              navigate("/headphones");
+            }}
+          >
+            HEADPHONES
+          </Button4>
+          <Button4
+            onClick={() => {
+              navigate("/speakers");
+            }}
+          >
+            SPEAKERS
+          </Button4>
+          <Button4
+            onClick={() => {
+              navigate("/earphones");
+            }}
+          >
+            EARPHONES
+          </Button4>
         </HStack>
         <ShoppingCartButton handleClick={onOpen} />
         <CartModal isOpen={isOpen} onClose={onClose} />

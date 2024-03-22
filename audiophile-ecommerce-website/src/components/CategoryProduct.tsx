@@ -1,5 +1,6 @@
 import { HStack, Image, VStack, Text } from "@chakra-ui/react";
 import Button1 from "./common/Button1";
+import { useNavigate } from "react-router-dom";
 
 interface Props {
   image: string;
@@ -18,6 +19,8 @@ const CategoryProduct = ({
   isNew,
   invert,
 }: Props) => {
+  const navigate = useNavigate();
+
   return (
     <HStack
       width="100%"
@@ -40,7 +43,13 @@ const CategoryProduct = ({
         <Text className="regular" color="black.800" opacity="50%">
           {description}
         </Text>
-        <Button1 onClick={() => {}}>SEE PRODUCT</Button1>
+        <Button1
+          onClick={() => {
+            navigate(url);
+          }}
+        >
+          SEE PRODUCT
+        </Button1>
       </VStack>
     </HStack>
   );

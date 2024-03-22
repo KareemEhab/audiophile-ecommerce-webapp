@@ -1,10 +1,22 @@
 import { VStack, Text, HStack } from "@chakra-ui/react";
 import CategoryProduct from "../components/CategoryProduct";
-import image from "../../assets/product-xx99-mark-two-headphones/desktop/image-category-page-preview.jpg";
 import Categories from "../components/common/Categories";
 import AudioPhileDescription from "../components/common/AudioPhileDescription";
+import { Product } from "../hooks/useProducts";
+import { useParams } from "react-router-dom";
 
-const CategoryPage = () => {
+interface Props {
+  products: Product[];
+}
+
+const CategoryPage = ({ products }: Props) => {
+  const params = useParams();
+  const filteredProducts = products
+    ? products
+        .filter((product) => product.category === params.category)
+        .reverse()
+    : [];
+
   return (
     <VStack width="100%">
       <HStack
@@ -21,26 +33,17 @@ const CategoryPage = () => {
       </HStack>
       <VStack maxW="69.4rem" marginTop="10rem">
         <VStack width="100%" gap="8rem">
-          <CategoryProduct
-            image={image}
-            name="XX99 Mark II Headphones"
-            description="The new XX99 Mark II headphones is the pinnacle of pristine audio. It redefines your premium headphone experience by reproducing the balanced depth and precision of studio-quality sound."
-            url=""
-            isNew
-          />
-          <CategoryProduct
-            image={image}
-            name="XX99 Mark II Headphones"
-            description="The new XX99 Mark II headphones is the pinnacle of pristine audio. It redefines your premium headphone experience by reproducing the balanced depth and precision of studio-quality sound."
-            url=""
-            invert
-          />
-          <CategoryProduct
-            image={image}
-            name="XX99 Mark II Headphones"
-            description="The new XX99 Mark II headphones is the pinnacle of pristine audio. It redefines your premium headphone experience by reproducing the balanced depth and precision of studio-quality sound."
-            url=""
-          />
+          {filteredProducts.map((product, index) => (
+            <CategoryProduct
+              key={product.slug + index}
+              image={product.image.desktop}
+              name={product.name}
+              description={product.description}
+              url={`/${product.category}/${product.slug}`}
+              invert={index % 2 !== 0}
+              isNew={product.new}
+            />
+          ))}
         </VStack>
         <VStack marginTop="13rem">
           <Categories />

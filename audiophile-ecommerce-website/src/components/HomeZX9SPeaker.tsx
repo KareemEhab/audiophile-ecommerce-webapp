@@ -2,8 +2,11 @@ import { HStack, Image, VStack, Text } from "@chakra-ui/react";
 import speaker from "../../assets/home/desktop/image-speaker-zx9.png";
 import circlePatterns from "../../assets/home/desktop/pattern-circles.svg";
 import Button5 from "./common/Button5";
+import { useNavigate } from "react-router-dom";
 
 const ZX9SPeaker = () => {
+  const navigate = useNavigate();
+
   return (
     <HStack
       bg="orange.800"
@@ -34,7 +37,13 @@ const ZX9SPeaker = () => {
           Upgrade to premium speakers that are phenomenally built to deliver
           truly remarkable sound.
         </Text>
-        <Button5 onClick={() => {}}>SEE PRODUCT</Button5>
+        <Button5
+          onClick={() => {
+            navigate("/speakers/zx9-speaker");
+          }}
+        >
+          SEE PRODUCT
+        </Button5>
       </VStack>
     </HStack>
   );

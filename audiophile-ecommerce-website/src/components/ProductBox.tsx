@@ -4,6 +4,7 @@ import Button1 from "./common/Button1";
 interface Props {
   image: string;
   name: string;
+  price: number;
   description: string;
   url: string;
   isNew?: boolean;
@@ -11,9 +12,10 @@ interface Props {
   setCount: (count: number) => void;
 }
 
-const Product = ({
+const ProductBox = ({
   image,
   name,
+  price,
   description,
   url,
   isNew,
@@ -37,7 +39,7 @@ const Product = ({
         <Text className="regular" color="black.800" opacity="50%">
           {description}
         </Text>
-        <Text className="h6">$ 2,999</Text>
+        <Text className="h6">$ {price.toLocaleString()}</Text>
         <HStack gap="1rem">
           <HStack
             width="7.5rem"
@@ -83,4 +85,4 @@ const Product = ({
   );
 };
 
-export default Product;
+export default ProductBox;

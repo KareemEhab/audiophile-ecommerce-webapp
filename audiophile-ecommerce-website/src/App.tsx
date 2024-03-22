@@ -1,4 +1,4 @@
-import { VStack } from "@chakra-ui/react";
+import { HStack, Spinner, VStack } from "@chakra-ui/react";
 import Navbar from "./components/Navbar";
 import HomePage from "./pages/HomePage";
 import CategoryPage from "./pages/CategoryPage";
@@ -12,33 +12,50 @@ import {
   useLocation,
   useNavigate,
 } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import useProducts from "./hooks/useProducts";
 
 function App() {
   const location = useLocation();
   const isFormPage =
     location.pathname === "/login" || location.pathname === "/register";
-  const navigate = useNavigate();
 
   useEffect(() => {
     if (!localStorage.getItem("audiophile-token")) navigate("/login");
   }, [location]);
 
+  const { products, isLoading } = useProducts();
+  const navigate = useNavigate();
+  if (isLoading)
+    return (
+      <HStack
+        width="100vw"
+        height="100vh"
+        alignItems="center"
+        justifyContent="center"
+      >
+        <Spinner size="xl" />
+      </HStack>
+    );
+
+  const [cart, setCart] = useState({});
+
   return (
     <VStack width="100vw">
-      {!isFormPage && <Navbar />}
+      {!isFormPage && !isLoading && <Navbar />}
 
       <Routes>
-        <Route path="/headphones" element={<CategoryPage />} />
-        <Route path="/speakers" element={<CategoryPage />} />
-        <Route path="/earphones" element={<CategoryPage />} />
-        <Route path="/product" element={<ProductPage />} />
+        <Route
+          path="/:category"
+          element={<CategoryPage products={products} />}
+        />
+        <Route path="/:category/:slug" element={<ProductPage />} />
         <Route path="/checkout" element={<CheckoutPage />} />
         <Route path="/" element={<HomePage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
 
-      {!isFormPage && <Footer />}
+      {!isFormPage && !isLoading && <Footer />}
     </VStack>
   );
 }

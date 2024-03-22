@@ -4,6 +4,7 @@ import HomePage from "./pages/HomePage";
 import CategoryPage from "./pages/CategoryPage";
 import ProductPage from "./pages/ProductPage";
 import Footer from "./components/Footer";
+import CheckoutPage from "./pages/CheckoutPage";
 
 function App() {
   return (
@@ -11,7 +12,8 @@ function App() {
       <Navbar />
       {/* <HomePage /> */}
       {/* <CategoryPage /> */}
-      <ProductPage />
+      {/* <ProductPage /> */}
+      <CheckoutPage />
       <Footer />
     </VStack>
   );

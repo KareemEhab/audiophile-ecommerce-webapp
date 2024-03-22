@@ -3,12 +3,13 @@ import { Button } from "@chakra-ui/react";
 interface Props {
   children: string;
   onClick: () => void;
+  width?: string;
 }
 
-const Button1 = ({ children, onClick }: Props) => {
+const Button1 = ({ children, onClick, width }: Props) => {
   return (
     <Button
-      width="10rem"
+      width={width ? width : "10rem"}
       height="3rem"
       bg="orange.800"
       color="white.800"

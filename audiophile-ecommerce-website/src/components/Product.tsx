@@ -49,7 +49,11 @@ const Product = ({
             textColor="black.800"
           >
             <Text
-              onClick={() => setCount(count - 1)}
+              onClick={() => {
+                if (count > 1) {
+                  setCount(count - 1);
+                }
+              }}
               opacity="25%"
               cursor="pointer"
               userSelect="none"
@@ -59,7 +63,11 @@ const Product = ({
             </Text>
             <Text>{count}</Text>
             <Text
-              onClick={() => setCount(count + 1)}
+              onClick={() => {
+                if (count < 100) {
+                  setCount(count + 1);
+                }
+              }}
               opacity="25%"
               cursor="pointer"
               userSelect="none"

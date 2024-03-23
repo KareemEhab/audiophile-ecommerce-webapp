@@ -14,7 +14,7 @@ const ProductOthers = ({ others }: Props) => {
       </Text>
       <HStack width="100%" justify="space-between">
         {others.map((product) => (
-          <ProductOthersSingle product={product} />
+          <ProductOthersSingle product={product} key={product.name} />
         ))}
       </HStack>
     </VStack>

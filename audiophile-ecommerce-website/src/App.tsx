@@ -13,7 +13,12 @@ import {
   useNavigate,
 } from "react-router-dom";
 import { useEffect, useState } from "react";
-import useProducts from "./hooks/useProducts";
+import useProducts, { Product } from "./hooks/useProducts";
+
+export interface CartItem {
+  product: Product;
+  quantity: number;
+}
 
 function App() {
   const location = useLocation();
@@ -26,7 +31,9 @@ function App() {
 
   const { products, isLoading } = useProducts();
   const navigate = useNavigate();
-  if (isLoading)
+  const [cart, setCart] = useState<CartItem[]>([]);
+
+  if (isLoading) {
     return (
       <HStack
         width="100vw"
@@ -37,20 +44,22 @@ function App() {
         <Spinner size="xl" />
       </HStack>
     );
-
-  const [cart, setCart] = useState({});
+  }
 
   return (
-    <VStack width="100vw">
-      {!isFormPage && !isLoading && <Navbar />}
+    <VStack width="100vw" minH="100vh">
+      {!isFormPage && !isLoading && <Navbar cart={cart} setCart={setCart} />}
 
       <Routes>
         <Route
           path="/:category"
           element={<CategoryPage products={products} />}
         />
-        <Route path="/:category/:slug" element={<ProductPage />} />
-        <Route path="/checkout" element={<CheckoutPage />} />
+        <Route
+          path="/:category/:slug"
+          element={<ProductPage cart={cart} setCart={setCart} />}
+        />
+        <Route path="/checkout" element={<CheckoutPage cart={cart} />} />
         <Route path="/" element={<HomePage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

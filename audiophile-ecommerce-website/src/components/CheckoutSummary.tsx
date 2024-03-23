@@ -1,17 +1,24 @@
 import { HStack, Text, VStack } from "@chakra-ui/react";
 import Button1 from "./common/Button1";
-import data from "../../../starter-code/data.json";
 import CheckoutSummaryProduct from "./CheckoutSummaryProduct";
+import { CartItem } from "../App";
 
 interface Props {
   setFormSubmit: (value: boolean) => void;
+  cart: CartItem[];
 }
 
-const CheckoutSummary = ({ setFormSubmit }: Props) => {
+const CheckoutSummary = ({ setFormSubmit, cart }: Props) => {
+  const total = cart.reduce((total, cartItem) => {
+    return total + cartItem.product.price * cartItem.quantity;
+  }, 0);
+  const vat = Number((total * 0.2).toFixed());
+  const grandTotal = total + 50;
+
   return (
     <VStack
       width="21.875rem"
-      height="38.25rem"
+      maxH="38.25rem"
       bg="white.800"
       borderRadius="0.5rem"
       align="left"
@@ -21,31 +28,16 @@ const CheckoutSummary = ({ setFormSubmit }: Props) => {
       <Text className="h6" color="black.800">
         Summary
       </Text>
-      <VStack className="scrollable" gap="1rem" height="16rem" overflow="auto">
-        <CheckoutSummaryProduct
-          image={data[0].image.desktop}
-          name={data[3].name.split(" ")[0]}
-          price={data[0].price}
-          quantity={1}
-        />
-        <CheckoutSummaryProduct
-          image={data[0].image.desktop}
-          name={data[0].name}
-          price={data[0].price}
-          quantity={1}
-        />
-        <CheckoutSummaryProduct
-          image={data[0].image.desktop}
-          name={data[0].name}
-          price={data[0].price}
-          quantity={1}
-        />
-        <CheckoutSummaryProduct
-          image={data[0].image.desktop}
-          name={data[0].name}
-          price={data[0].price}
-          quantity={1}
-        />
+      <VStack className="scrollable" gap="1rem" maxH="16rem" overflow="auto">
+        {cart.map((cartItem) => (
+          <CheckoutSummaryProduct
+            key={cartItem.product.slug + cartItem.product.id}
+            image={cartItem.product.image.desktop}
+            name={cartItem.product.name.split(" ")[0]}
+            price={cartItem.product.price}
+            quantity={cartItem.quantity}
+          />
+        ))}
       </VStack>
       <VStack>
         <HStack width="100%" justify="space-between">
@@ -58,7 +50,7 @@ const CheckoutSummary = ({ setFormSubmit }: Props) => {
             TOTAL
           </Text>
           <Text fontSize="18px" fontWeight="bold" color="black.800">
-            $ 5,312
+            $ {total.toLocaleString()}
           </Text>
         </HStack>
         <HStack width="100%" justify="space-between">
@@ -71,7 +63,7 @@ const CheckoutSummary = ({ setFormSubmit }: Props) => {
             SHIPPING
           </Text>
           <Text fontSize="18px" fontWeight="bold" color="black.800">
-            $ 5,312
+            $ 50
           </Text>
         </HStack>
         <HStack width="100%" justify="space-between">
@@ -84,7 +76,7 @@ const CheckoutSummary = ({ setFormSubmit }: Props) => {
             VAT (INCLUDED)
           </Text>
           <Text fontSize="18px" fontWeight="bold" color="black.800">
-            $ 5,312
+            $ {vat.toLocaleString()}
           </Text>
         </HStack>
         <HStack width="100%" justify="space-between" marginTop="0.75rem">
@@ -97,7 +89,7 @@ const CheckoutSummary = ({ setFormSubmit }: Props) => {
             GRAND TOTAL
           </Text>
           <Text fontSize="18px" fontWeight="bold" color="orange.800">
-            $ 5,312
+            $ {grandTotal.toLocaleString()}
           </Text>
         </HStack>
       </VStack>

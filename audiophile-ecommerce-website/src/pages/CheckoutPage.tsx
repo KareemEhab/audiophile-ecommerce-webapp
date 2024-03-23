@@ -1,13 +1,22 @@
 import { Box, HStack, VStack } from "@chakra-ui/react";
 import CheckoutForm from "../components/CheckoutForm";
 import CheckoutSummary from "../components/CheckoutSummary";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Button6 from "../components/common/Button6";
 import { useNavigate } from "react-router-dom";
+import { CartItem } from "../App";
 
-const CheckoutPage = () => {
-  const [formSubmit, setFormSubmit] = useState(false);
+interface Props {
+  cart: CartItem[];
+}
+
+const CheckoutPage = ({ cart }: Props) => {
   const navigate = useNavigate();
+  useEffect(() => {
+    if (cart.length === 0) navigate("/");
+  }, [cart]);
+
+  const [formSubmit, setFormSubmit] = useState(false);
 
   const goBack = () => {
     navigate(-1); // Navigate back to the previous route
@@ -20,7 +29,7 @@ const CheckoutPage = () => {
         <Button6 onClick={goBack}>Go Back</Button6>
         <HStack width="100%" justify="space-between" align="flex-start">
           <CheckoutForm formSubmit={formSubmit} setFormSubmit={setFormSubmit} />
-          <CheckoutSummary setFormSubmit={setFormSubmit} />
+          <CheckoutSummary setFormSubmit={setFormSubmit} cart={cart} />
         </HStack>
       </VStack>
     </VStack>

@@ -1,9 +1,8 @@
 import { Box, VStack } from "@chakra-ui/react";
 import ProductBox from "../components/ProductBox";
-import { useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import ProductFeatures from "../components/ProductFeatures";
 import ProductGalleryComponent from "../components/ProductGallery";
-import data from "../../../starter-code/data.json";
 import ProductOthers from "../components/ProductOthers";
 import AudioPhileDescription from "../components/common/AudioPhileDescription";
 import Categories from "../components/common/Categories";
@@ -11,9 +10,14 @@ import Button6 from "../components/common/Button6";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import useProducts, { Product } from "../hooks/useProducts";
-import image from "../../assets/product-xx59-headphones/desktop/image-product.jpg";
+import { CartItem } from "../App";
 
-const ProductPage = () => {
+interface Props {
+  cart: CartItem[];
+  setCart: Dispatch<SetStateAction<CartItem[]>>;
+}
+
+const ProductPage = ({ cart, setCart }: Props) => {
   const [product, setProduct] = useState<Product>();
   const { getProduct } = useProducts();
   const [productCount, setCount] = useState(1);
@@ -47,14 +51,11 @@ const ProductPage = () => {
         <Button6 onClick={goBack}>Go Back</Button6>
         <VStack width="100%" gap="10rem" align="left">
           <ProductBox
-            image={product.image.desktop}
-            name={product.name}
-            price={product.price}
-            description={product.description}
-            url={`/${product.category}/${product.slug}`}
-            isNew={product.new}
+            product={product}
             count={productCount}
             setCount={setCount}
+            cart={cart}
+            setCart={setCart}
           />
           <ProductFeatures
             includes={product.includes}

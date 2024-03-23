@@ -5,8 +5,15 @@ import CartModal from "./CartModal";
 import { useNavigate } from "react-router-dom";
 import Button4 from "./common/Button4";
 import logo from "../../assets/shared/desktop/logo.svg";
+import { CartItem } from "../App";
+import { Dispatch, SetStateAction } from "react";
 
-const Navbar = () => {
+interface Props {
+  cart: CartItem[];
+  setCart: Dispatch<SetStateAction<CartItem[]>>;
+}
+
+const Navbar = ({ cart, setCart }: Props) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const navigate = useNavigate();
 
@@ -69,7 +76,12 @@ const Navbar = () => {
             <FiLogOut />
           </Text>
         </HStack>
-        <CartModal isOpen={isOpen} onClose={onClose} />
+        <CartModal
+          isOpen={isOpen}
+          onClose={onClose}
+          cart={cart}
+          setCart={setCart}
+        />
       </HStack>
     </HStack>
   );

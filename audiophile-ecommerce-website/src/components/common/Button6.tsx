@@ -13,7 +13,7 @@ const Button6 = ({ children, onClick }: Props) => {
       _hover={{ ".hoverable": { color: "orange.800", opacity: "1" } }}
     >
       <Text
-        className="Regular hoverable"
+        className="regular hoverable"
         fontSize="0.81rem"
         fontWeight="bold"
         color="black.800"

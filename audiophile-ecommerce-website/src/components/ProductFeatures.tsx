@@ -20,7 +20,7 @@ const ProductFeatures = ({ text, includes }: Props) => {
         <VStack align="left" width="100%">
           {includes.map((include) => {
             return (
-              <HStack gap="1.5rem">
+              <HStack gap="1.5rem" key={include.item}>
                 <Text className="regular" color="orange.800">
                   {include.quantity}x
                 </Text>

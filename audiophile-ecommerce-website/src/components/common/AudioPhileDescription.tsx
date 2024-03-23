@@ -1,17 +1,17 @@
-import { HStack, VStack, Text, Image } from "@chakra-ui/react";
+import { HStack, VStack, Text, Image, Box } from "@chakra-ui/react";
 import image from "../../../assets/shared/desktop/image-best-gear.jpg";
 
 const HomeDescription = () => {
   return (
     <HStack width="100%" gap="8rem" marginY="13rem">
       <VStack gap="3rem" justify="center">
-        <Text className="h2" color="black.800">
+        <Box className="h2" color="black.800">
           Bringing you the{" "}
           <Text display="inline" color="orange.800">
             best
           </Text>{" "}
           audio gear
-        </Text>
+        </Box>
         <Text className="regular" color="black.800" opacity="50%">
           Located at the heart of New York City, Audiophile is the premier store
           for high end headphones, earphones, speakers, and audio accessories.

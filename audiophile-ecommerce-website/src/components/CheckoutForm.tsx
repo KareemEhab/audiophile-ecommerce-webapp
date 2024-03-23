@@ -1,17 +1,21 @@
-import { VStack, Text } from "@chakra-ui/react";
+import { VStack, Text, useDisclosure } from "@chakra-ui/react";
 import { Formik, Form, FormikValues } from "formik";
 import * as Yup from "yup";
 import CheckoutPaymentMethods from "../components/CheckoutPaymentMethods";
 import CheckoutBillingDetails from "./CheckoutBillingDetails";
 import CheckoutShippingInfo from "./CheckoutShippingInfo";
-import { useEffect, useRef } from "react";
+import { Dispatch, SetStateAction, useEffect, useRef } from "react";
+import OrderConfirmedModal from "./OrderConfirmedModal";
+import { CartItem } from "../App";
 
 interface Props {
   formSubmit: boolean;
   setFormSubmit: (value: boolean) => void;
+  cart: CartItem[];
+  setCart: Dispatch<SetStateAction<CartItem[]>>;
 }
 
-function CheckoutForm({ formSubmit, setFormSubmit }: Props) {
+function CheckoutForm({ formSubmit, setFormSubmit, cart, setCart }: Props) {
   const initialValues = {
     billingName: "",
     emailAddress: "",
@@ -59,9 +63,12 @@ function CheckoutForm({ formSubmit, setFormSubmit }: Props) {
     }
   }, [formSubmit, setFormSubmit]);
 
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
   const handleSubmit = (values: FormikValues) => {
     // Handle form submission logic here
     console.log(values);
+    onOpen();
   };
 
   return (
@@ -91,6 +98,12 @@ function CheckoutForm({ formSubmit, setFormSubmit }: Props) {
           </VStack>
         </Form>
       </Formik>
+      <OrderConfirmedModal
+        isOpen={isOpen}
+        onClose={onClose}
+        cart={cart}
+        setCart={setCart}
+      />
     </VStack>
   );
 }

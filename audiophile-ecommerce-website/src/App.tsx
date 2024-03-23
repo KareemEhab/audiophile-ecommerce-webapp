@@ -59,7 +59,10 @@ function App() {
           path="/:category/:slug"
           element={<ProductPage cart={cart} setCart={setCart} />}
         />
-        <Route path="/checkout" element={<CheckoutPage cart={cart} />} />
+        <Route
+          path="/checkout"
+          element={<CheckoutPage cart={cart} setCart={setCart} />}
+        />
         <Route path="/" element={<HomePage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

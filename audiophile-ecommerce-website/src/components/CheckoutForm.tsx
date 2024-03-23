@@ -24,7 +24,7 @@ function CheckoutForm({ formSubmit, setFormSubmit, cart, setCart }: Props) {
     zipCode: "",
     city: "",
     country: "",
-    paymentMethod: "e-Money",
+    paymentMethod: "cashOnDelivery",
     eMoneyNumber: "",
     eMoneyPIN: "",
   };

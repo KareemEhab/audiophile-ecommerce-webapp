@@ -1,9 +1,16 @@
-import { HStack, Image, VStack, Text } from "@chakra-ui/react";
+import {
+  HStack,
+  Image,
+  VStack,
+  Text,
+  useBreakpointValue,
+} from "@chakra-ui/react";
 import Button1 from "./common/Button1";
 import { useNavigate } from "react-router-dom";
+import { ProductImage } from "../hooks/useProducts";
 
 interface Props {
-  image: string;
+  image: ProductImage;
   name: string;
   description: string;
   url: string;
@@ -20,23 +27,41 @@ const CategoryProduct = ({
   invert,
 }: Props) => {
   const navigate = useNavigate();
+  const imageUrl = useBreakpointValue({
+    base: image.mobile,
+    md: image.tablet,
+    lg: image.desktop,
+  });
+  const breakpointFont = useBreakpointValue({ base: "h4", md: "h2" });
 
   return (
     <HStack
       width="100%"
+      align="center"
       justify="space-between"
-      flexDirection={invert ? "row-reverse" : "row"}
-      gap="10rem"
+      flexDirection={{ base: "column", lg: invert ? "row-reverse" : "row" }}
+      gap={{ base: "3rem", lg: "10rem" }}
     >
-      <Image src={image} width="33.75rem" borderRadius="0.5rem" />
-      <VStack width="27.8rem" align="left" gap="2rem">
+      <Image
+        src={imageUrl}
+        width={{ base: "100%", lg: "33.75rem" }}
+        maxW={{ lg: "40vw" }}
+        borderRadius="0.5rem"
+      />
+      <VStack
+        width={{ base: "100%", lg: "27.8rem" }}
+        align={{ base: "center", lg: "flex-start" }}
+        textAlign={{ base: "center", lg: "left" }}
+        gap="2rem"
+        paddingX={{ base: "2rem", md: "5rem", lg: 0 }}
+      >
         <VStack align="inherit">
           {isNew && (
             <Text className="overline" color="orange.800">
               New Product
             </Text>
           )}
-          <Text className="h2" color="black.800">
+          <Text className={breakpointFont} color="black.800">
             {name}
           </Text>
         </VStack>

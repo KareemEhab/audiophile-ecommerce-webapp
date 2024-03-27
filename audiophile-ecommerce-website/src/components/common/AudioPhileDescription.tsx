@@ -1,10 +1,33 @@
-import { HStack, VStack, Text, Image, Box } from "@chakra-ui/react";
-import image from "../../../assets/shared/desktop/image-best-gear.jpg";
+import {
+  HStack,
+  VStack,
+  Text,
+  Image,
+  Box,
+  useBreakpointValue,
+} from "@chakra-ui/react";
 
 const HomeDescription = () => {
+  const image = useBreakpointValue({
+    base: "https://res.cloudinary.com/dhhfdtixq/image/upload/v1711123253/audiophile/shared/mobile/zkm6wxhxwco1cr84iz5f.jpg",
+    md: "https://res.cloudinary.com/dhhfdtixq/image/upload/v1711319536/audiophile/shared/tablet/image-best-gear_n2i4pc.jpg",
+    lg: "https://res.cloudinary.com/dhhfdtixq/image/upload/v1711123248/audiophile/shared/desktop/qyntagohfjkwyxtsnvjb.jpg",
+  });
+
   return (
-    <HStack width="100%" gap="8rem" marginY="13rem">
-      <VStack gap="3rem" justify="center">
+    <HStack
+      width="100%"
+      maxW="calc(100vw - 3rem)"
+      gap="8rem"
+      marginY="13rem"
+      flexDirection={{ base: "column-reverse", lg: "row" }}
+    >
+      <VStack
+        width={{ md: "36rem", lg: "100%" }}
+        gap="3rem"
+        justify="center"
+        textAlign={{ base: "center", lg: "left" }}
+      >
         <Box className="h2" color="black.800">
           Bringing you the{" "}
           <Text display="inline" color="orange.800">
@@ -21,7 +44,12 @@ const HomeDescription = () => {
           best place to buy your portable audio equipment.
         </Text>
       </VStack>
-      <Image src={image} borderRadius="0.5rem" />
+      <Image
+        src={image}
+        width="100%"
+        maxW={{ lg: "50vw" }}
+        borderRadius="0.5rem"
+      />
     </HStack>
   );
 };

@@ -14,10 +14,11 @@ const CheckoutShippingInfo = () => {
         placeholder="1137 Williams Avenue"
       />
       <SimpleGrid
-        columns={{ md: 1, lg: 2 }}
+        columns={{ base: 1, md: 2 }}
         width="100%"
         spacingX="inherit"
         spacingY="1rem"
+        alignItems="center"
       >
         <FormField label="ZIP Code" name="zipCode" placeholder="10001" />
         <FormField label="City" name="city" placeholder="New York" />

@@ -16,7 +16,7 @@ function FormField({ label, name, placeholder, width, type }: Props) {
 
   return (
     <FormControl>
-      <HStack justify="space-between" width={width ? width : "19.3125rem"}>
+      <HStack justify="space-between" maxW="100%">
         <FormLabel
           fontSize="0.75rem"
           fontWeight="bold"
@@ -33,7 +33,7 @@ function FormField({ label, name, placeholder, width, type }: Props) {
       </HStack>
       <Input
         type={type ? type : "text"}
-        width={width ? width : "19.3125rem"}
+        width={{ base: "100%", md: width ? width : "19.3125rem" }}
         height="3.5rem"
         fontSize="0.875rem"
         fontWeight="bold"

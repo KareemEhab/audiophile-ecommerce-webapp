@@ -74,7 +74,8 @@ function CheckoutForm({ formSubmit, setFormSubmit, cart, setCart }: Props) {
   return (
     <VStack
       width="45.625rem"
-      height="70.375rem"
+      maxW="calc(100vw - 3rem)"
+      height={{ md: "70.375rem" }}
       bg="white.800"
       borderRadius="0.5rem"
       align="flex-start"
@@ -90,7 +91,7 @@ function CheckoutForm({ formSubmit, setFormSubmit, cart, setCart }: Props) {
         onSubmit={handleSubmit}
         innerRef={formikRef}
       >
-        <Form>
+        <Form style={{ width: "100%" }}>
           <VStack width="100%" align="start" spacing={4} gap="3rem">
             <CheckoutBillingDetails />
             <CheckoutShippingInfo />

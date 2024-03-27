@@ -28,15 +28,15 @@ const CategoryPage = ({ products }: Props) => {
         justifyContent="center"
       >
         <Text className="h2" color="white.800">
-          HEADPHONES
+          {params.category}
         </Text>
       </HStack>
-      <VStack maxW="69.4rem" marginTop="10rem">
+      <VStack width="69.4rem" maxW="calc(100vw - 3rem)" marginTop="10rem">
         <VStack width="100%" gap="8rem">
           {filteredProducts.map((product, index) => (
             <CategoryProduct
               key={product.slug + index}
-              image={product.image.desktop}
+              image={product.categoryImage}
               name={product.name}
               description={product.description}
               url={`/${product.category}/${product.slug}`}

@@ -12,7 +12,12 @@ const ProductOthers = ({ others }: Props) => {
       <Text className="h3" color="black.800">
         You may also like
       </Text>
-      <HStack width="100%" justify="space-between">
+      <HStack
+        width="100%"
+        justify="space-between"
+        gap={{ base: "3rem", md: 1 }}
+        flexDir={{ base: "column", md: "row" }}
+      >
         {others.map((product) => (
           <ProductOthersSingle product={product} key={product.name} />
         ))}

@@ -36,14 +36,15 @@ const OrderConfirmedModal = ({ isOpen, onClose, cart, setCart }: Props) => {
       <ModalOverlay />
       <ModalContent
         paddingX="1rem"
-        paddingY="1rem"
-        minW="33.75rem"
-        minH="36.3125rem"
+        paddingY={{ md: "1rem" }}
+        width="33.75rem"
+        maxW="calc(100vw - 5rem)"
+        minH={{ base: "70vh", md: "36.3125rem" }}
         bg="white.700"
       >
         <ModalHeader></ModalHeader>
         <ModalBody display="flex" justifyContent="center">
-          <VStack width="27.75rem" align="left" gap="2rem">
+          <VStack align="left" gap="2rem">
             <Image
               src="https://res.cloudinary.com/dhhfdtixq/image/upload/v1711123238/audiophile/checkout/spk9veb7sicfjb8qcopg.svg"
               maxW="4rem"
@@ -54,9 +55,15 @@ const OrderConfirmedModal = ({ isOpen, onClose, cart, setCart }: Props) => {
             <Text className="regular" color="black.800" opacity="50%">
               You will receive an email confirmation shortly.
             </Text>
-            <HStack width="100%" minH="8.75rem" borderRadius="0.5rem" gap={0}>
+            <HStack
+              width="100%"
+              minH="8.75rem"
+              borderRadius="0.5rem"
+              gap={0}
+              flexDir={{ base: "column", md: "row" }}
+            >
               <VStack
-                width="15.375rem"
+                width={{ base: "100%", md: "15.375rem" }}
                 minH="100%"
                 overflow="auto"
                 bg="white.600"
@@ -70,7 +77,10 @@ const OrderConfirmedModal = ({ isOpen, onClose, cart, setCart }: Props) => {
                       cart.map(
                         (cartItem, index) =>
                           index !== 0 && (
-                            <OrderConfirmedItem cartItem={cartItem} />
+                            <OrderConfirmedItem
+                              key={cartItem.product.id + cartItem.product.slug}
+                              cartItem={cartItem}
+                            />
                           )
                       )}
                     <Divider width="12.375rem" color="black.800" opacity="1" />
@@ -94,7 +104,7 @@ const OrderConfirmedModal = ({ isOpen, onClose, cart, setCart }: Props) => {
                 )}
               </VStack>
               <VStack
-                width="12.375rem"
+                width={{ base: "100%", md: "12.375rem" }}
                 height="100%"
                 bg="black.800"
                 align="left"
@@ -109,6 +119,7 @@ const OrderConfirmedModal = ({ isOpen, onClose, cart, setCart }: Props) => {
                 </Text>
               </VStack>
             </HStack>
+            <HStack marginTop={{ base: "4rem", md: "0" }}></HStack>
             <Button1
               width="100%"
               onClick={() => {

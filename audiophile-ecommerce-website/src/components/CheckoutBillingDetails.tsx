@@ -8,7 +8,7 @@ const CheckoutBillingDetails = () => {
         Billing Details
       </Text>
       <SimpleGrid
-        columns={{ md: 1, lg: 2 }}
+        columns={{ base: 1, md: 2 }}
         width="100%"
         spacingX="inherit"
         spacingY="1rem"

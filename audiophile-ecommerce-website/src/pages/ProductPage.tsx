@@ -47,9 +47,15 @@ const ProductPage = ({ cart, setCart }: Props) => {
   return (
     <VStack maxW="100%" overflow="hidden">
       <Box minW="100vw" height="5.6rem" bg="black.800"></Box>
-      <VStack maxW="69.4rem" marginTop="5rem" gap="2.5rem" align="left">
+      <VStack
+        width="69.4rem"
+        maxW="calc(100vw - 3rem)"
+        marginTop="5rem"
+        gap="2.5rem"
+        align="left"
+      >
         <Button6 onClick={goBack}>Go Back</Button6>
-        <VStack width="100%" gap="10rem" align="left">
+        <VStack width="100%" maxW="calc(100vw - 3rem)" gap="10rem" align="left">
           <ProductBox
             product={product}
             count={productCount}

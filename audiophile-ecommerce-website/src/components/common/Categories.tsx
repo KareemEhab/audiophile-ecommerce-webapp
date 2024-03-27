@@ -6,7 +6,13 @@ import CategoryThumbnail from "../CategoryThumbnail";
 
 const Categories = () => {
   return (
-    <HStack justify="space-between" width="100%">
+    <HStack
+      justify="space-between"
+      width="100%"
+      maxW="calc(100vw - 3rem)"
+      gap={{ base: "6rem", md: 2 }}
+      flexDirection={{ base: "column", md: "row" }}
+    >
       <CategoryThumbnail
         imageURL={categoryThumbnailHeadphones}
         header="HEADPHONES"

@@ -24,11 +24,23 @@ const CheckoutPage = ({ cart, setCart }: Props) => {
   };
 
   return (
-    <VStack maxW="100%" overflow="hidden" bg="#F2F2F2">
+    <VStack width="100%" overflow="hidden" bg="#F2F2F2">
       <Box minW="100vw" height="5.6rem" bg="black.800"></Box>
-      <VStack width="69.4rem" align="left" marginY="5rem" gap="2rem">
+      <VStack
+        width="69.4rem"
+        maxW="calc(100vw - 3rem)"
+        align="left"
+        marginY="5rem"
+        gap="2rem"
+      >
         <Button6 onClick={goBack}>Go Back</Button6>
-        <HStack width="100%" justify="space-between" align="flex-start">
+        <HStack
+          width="100%"
+          justify="space-between"
+          align={{ base: "center", lg: "flex-start" }}
+          gap={{ base: "2rem", lg: 1 }}
+          flexDir={{ base: "column", lg: "row" }}
+        >
           <CheckoutForm
             formSubmit={formSubmit}
             setFormSubmit={setFormSubmit}

@@ -12,7 +12,13 @@ const CategoryThumbnail = ({ imageURL, header, route }: Props) => {
   const navigate = useNavigate();
 
   return (
-    <VStack bg="white.600" width="21.9rem" maxH="10rem" borderRadius="0.5rem">
+    <VStack
+      bg="white.600"
+      width="21.9rem"
+      maxW={{ base: "100%", md: "31vw" }}
+      maxH="10rem"
+      borderRadius="0.5rem"
+    >
       <VStack position="relative" top="-4.5rem" gap={0}>
         <Image src={imageURL} height="10rem" />
         <Text fontWeight="bold" marginBottom="0.75rem">

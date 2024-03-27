@@ -1,4 +1,4 @@
-import { Image, VStack, Text } from "@chakra-ui/react";
+import { Image, VStack, Text, useBreakpointValue } from "@chakra-ui/react";
 import { ProductOther } from "../hooks/useProducts";
 import Button1 from "./common/Button1";
 import { useNavigate } from "react-router-dom";
@@ -9,6 +9,11 @@ interface Props {
 
 const ProductOthersSingle = ({ product }: Props) => {
   const navigate = useNavigate();
+  const imageUrl = useBreakpointValue({
+    base: product.image.mobile,
+    md: product.image.tablet,
+    lg: product.image.desktop,
+  });
 
   const getCategory = (slug: string) => {
     if (slug.includes("headphones")) return "headphones";
@@ -19,8 +24,9 @@ const ProductOthersSingle = ({ product }: Props) => {
   return (
     <VStack gap="1.5rem">
       <Image
-        maxW="21.875rem"
-        src={product.image.desktop}
+        width={{ md: "21.875rem" }}
+        maxW={{ md: "31vw" }}
+        src={imageUrl}
         borderRadius="0.5rem"
       />
       <Text className="h5" color="black.800">

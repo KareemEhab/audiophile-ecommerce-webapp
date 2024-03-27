@@ -1,4 +1,10 @@
-import { HStack, Image, VStack, Text } from "@chakra-ui/react";
+import {
+  HStack,
+  Image,
+  VStack,
+  Text,
+  useBreakpointValue,
+} from "@chakra-ui/react";
 import { CartItem } from "../App";
 import { Product } from "../hooks/useProducts";
 import { Dispatch, SetStateAction } from "react";
@@ -13,21 +19,39 @@ interface Props {
 }
 
 const ProductBox = ({ product, count, setCount, cart, setCart }: Props) => {
+  const imageUrl = useBreakpointValue({
+    base: product.image.mobile,
+    md: product.image.tablet,
+    lg: product.image.desktop,
+  });
+  const breakpointFont = useBreakpointValue({ base: "h3", lg: "h2" });
+
   return (
-    <HStack width="100%" justify="space-between" gap="10rem">
+    <HStack
+      width="100%"
+      justify="space-between"
+      gap={{ base: "2rem", lg: "10rem" }}
+      flexDir={{ base: "column", md: "row" }}
+    >
       <Image
-        src={product.image.desktop}
-        width="33.75rem"
+        src={imageUrl}
+        width={{ md: "33.75rem" }}
+        maxW={{ md: "50%" }}
         borderRadius="0.5rem"
       />
-      <VStack width="27.8rem" align="left" gap="2rem">
-        <VStack align="inherit">
+      <VStack
+        width={{ md: "27.8rem" }}
+        maxW={{ md: "50%" }}
+        align="left"
+        gap="2rem"
+      >
+        <VStack align="inherit" gap={{ base: "2rem", md: 1 }}>
           {product.new && (
             <Text className="overline" color="orange.800">
               New Product
             </Text>
           )}
-          <Text className="h2" color="black.800">
+          <Text className={breakpointFont} color="black.800">
             {product.name}
           </Text>
         </VStack>

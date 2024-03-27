@@ -17,7 +17,7 @@ const CheckoutSummary = ({ setFormSubmit, cart }: Props) => {
 
   return (
     <VStack
-      width="21.875rem"
+      width={{ base: "100%", lg: "21.875rem" }}
       maxH="38.25rem"
       bg="white.800"
       borderRadius="0.5rem"

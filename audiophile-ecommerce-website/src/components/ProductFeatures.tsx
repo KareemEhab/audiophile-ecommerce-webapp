@@ -8,15 +8,29 @@ interface Props {
 
 const ProductFeatures = ({ text, includes }: Props) => {
   return (
-    <HStack width="100%" justify="space-between" align="flex-start">
-      <VStack textColor="black.800" align="left" width="39.7rem">
+    <HStack
+      width="100%"
+      justify="space-between"
+      gap={{ base: "8rem", lg: 1 }}
+      align="flex-start"
+      flexDir={{ base: "column", lg: "row" }}
+    >
+      <VStack textColor="black.800" align="left" width={{ lg: "39.7rem" }}>
         <Text className="h3">Features</Text>
         <Text className="regular" opacity="50%">
           {text}
         </Text>
       </VStack>
-      <VStack width="21.875rem" textColor="black.800" align="left" gap="2rem">
-        <Text className="h3">In the box</Text>
+      <VStack
+        width={{ md: "100%", lg: "21.875rem" }}
+        textColor="black.800"
+        align="left"
+        gap="2rem"
+        flexDir={{ base: "column", md: "row", lg: "column" }}
+      >
+        <Text className="h3" width="100%">
+          In the box
+        </Text>
         <VStack align="left" width="100%">
           {includes.map((include) => {
             return (

@@ -36,7 +36,6 @@ Users should be able to:
 
 ### Links
 
-- Web Application Solution URL: (https://github.com/KareemEhab/audiophile-ecommerce-webapp)
 - Backend Solution URL: (https://github.com/KareemEhab/audiophile-commerce-backend)
 - Live Site URL: (https://audiophile-ecommerce-webapp.vercel.app/)
 - Live Back-end URL: (https://audiophile-commerce-backend.onrender.com/)
